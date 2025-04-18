@@ -13,6 +13,10 @@ Google Apps Scripts are included to:
 - Log all output and failures
 - Streamline cleanup for large WordPress datasets across multiple domains
 
+![example-redirect-sheet-clean](https://github.com/ericrasch/wp-cli-sheet-automation/blob/main/examples/screenshot-example-redirect-sheet-clean.png?raw=true)
+
+![export_wp_posts](https://github.com/ericrasch/wp-cli-sheet-automation/blob/main/examples/screenshot-export_wp_posts.png?raw=true)
+
 ---
 
 ## 🔧 Features
@@ -71,13 +75,13 @@ Google Apps Scripts are included to:
 
 ```bash
 wp-cli-sheet-automation/
+├── .gitignore
 ├── README.md
 ├── LICENSE
 ├── scripts/
 │   └── downloadShellScript.gs         # Apps Script to generate the bash file
 ├── docs/
-│   ├── sheet-structure.md             # Full column breakdown
-│   └── formulas.md                    # Reusable formulas and logic
+│   └── sheet-setup.md             # Full column breakdown + Reusable formulas and logic
 ├── examples/
 │   └── WP-CLI_Cleanup_Example_Public.xlsx
 ```
