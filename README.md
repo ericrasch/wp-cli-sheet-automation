@@ -33,17 +33,20 @@ Google Apps Scripts are included to:
 
 ## 📊 Google Sheet Structure
 
-| Column | Step    | Header                                | Purpose                                                                 |
-|--------|---------|----------------------------------------|-------------------------------------------------------------------------|
-| Y      | STEP 1  | Remove Unwanted Posts (301/410)        | Deletes posts marked as 410 using `wp post delete`                      |
-| Z      | STEP 2  | Change Post URL                        | Updates a post's custom permalink via `wp post update`                 |
-| AA     | STEP 3  | Search/Replace URL                     | Updates internal links using `wp search-replace`                       |
-| AB     | STEP 4  | URL Length                             | Used to sort search-replace commands by specificity (longest first)     |
-| AC     | STEP 5  | Combined CLI Command                   | Combines Steps 1–3 for manual exports or review                        |
-| U      | —       | Old Relative Path                      | Extracted from absolute URL in Column A                                |
-| V      | —       | New Relative Path                      | Extracted from absolute URL in Column R (unless Q = 410)               |
+| Column | Header                                      | Purpose                                                                 |
+|--------|---------------------------------------------|-------------------------------------------------------------------------|
+| A      | URL                                         | Original full URL                                                      |
+| B      | Action                                      | Type of action: `301`, `410`, or `Keep`                                |
+| C      | New URL                                     | Destination URL for 301 redirects; `N/A` if 410                        |
+| D      | url: ORIG                                   | Original relative path                                                 |
+| E      | url: NEW                                    | New relative path                                                      |
+| F      | post ID                                     | WordPress post ID if known                                             |
+| G      | STEP 1: Remove unwanted posts (301/410)     | Generates `wp post delete` command if action = 410                     |
+| H      | STEP 2: Change Post URL                     | (Optional) Updates post URL metadata                                   |
+| I      | STEP 3: Search/Replace URL                  | Updates internal links across database                                 |
+| J      | STEP 4: URL Length Sort                     | Calculates length of `url: ORIG`                                       |
+| K      | STEP 5: Combined CLI Command                | Combines Steps 1 + 3 with newlines                                     |
 
----
 
 ## 🧮 Google Sheets Formulas
 
