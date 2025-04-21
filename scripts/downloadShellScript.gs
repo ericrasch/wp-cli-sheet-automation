@@ -30,7 +30,7 @@
  */
 
 function downloadShellScript() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('301 redirects');
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('YourSheetName'); // Replace with your sheet name
   const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
   const lastRow = sheet.getLastRow();
 
