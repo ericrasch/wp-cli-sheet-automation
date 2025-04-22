@@ -42,7 +42,12 @@ function downloadShellScript() {
   };
 
   const deleteCol = getColIndex("STEP 1: Remove unwanted posts (301/410)");
-  const updateCol = getColIndex("STEP 2: Change Post URL");
+  let updateCol = -1;
+  try {
+    updateCol = getColIndex("STEP 2: Change Post URL");
+  } catch (err) {
+    Logger.log("ℹ️ Optional column missing: STEP 2: Change Post URL — skipping.");
+  }
   const replaceCol = getColIndex("STEP 3: Search/Replace URL");
   const lengthCol = getColIndex("STEP 4: URL Length Sort");
 
@@ -53,7 +58,7 @@ function downloadShellScript() {
   const allRows = sheet.getRange(2, 1, lastRow - 1, headers.length).getValues();
   const data = allRows.map(row => [
     row[deleteCol],
-    row[updateCol],
+    updateCol >= 0 ? row[updateCol] : "",
     row[replaceCol]
   ]);
 
