@@ -24,7 +24,7 @@
  * Author: Eric Rasch
  *   GitHub: https://github.com/ericrasch/wp-cli-sheet-automation
  * Date Created: 2025-04-18
- * Last Modified: 2025-04-18
+ * Last Modified: 2025-04-22
  * Version: 1.0
  *
  */
@@ -121,7 +121,8 @@ function downloadShellScript() {
       updates.push("run_or_log_fail " + updateCmd);
     }
     if (replaceCmd && replaceCmd !== "MISSING" && replaceCmd !== "#VALUE!") {
-      replaces.push("run_or_log_fail " + replaceCmd);
+      replaces.push("echo \"🟢 running " + replaceCmd + " ...\"");
+    replaces.push("run_or_log_fail " + replaceCmd);
     }
   });
 
