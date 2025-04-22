@@ -118,7 +118,8 @@ function downloadShellScript() {
       deletes.push("run_or_log_fail " + deleteCmd);
     }
     if (updateCmd && updateCmd !== "MISSING" && updateCmd !== "#VALUE!") {
-      updates.push("run_or_log_fail " + updateCmd);
+      updates.push("echo \"🟢 running " + updateCmd + " ...\"");
+    updates.push("run_or_log_fail " + updateCmd);
     }
     if (replaceCmd && replaceCmd !== "MISSING" && replaceCmd !== "#VALUE!") {
       replaces.push("echo \"🟢 running " + replaceCmd + " ...\"");
